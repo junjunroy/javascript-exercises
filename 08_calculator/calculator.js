@@ -7,29 +7,23 @@ const subtract = function(num, otherNum) {
 };
 
 const sum = function(arrayOfNum) {
-	let sumOfAll = 0;
-
   if(arrayOfNum.length === 0){
     return 0;
   }
 
-  for(num of arrayOfNum){
-    sumOfAll += num;
-  }
-  return sumOfAll;
+  return arrayOfNum.reduce((total, num) => {
+    return total + num;
+  });
 };
 
 const multiply = function(arrayOfNum) {
-  let productOfAll = 1;
-
   if(arrayOfNum.length === 0){
     return 0;
   }
 
-  for(num of arrayOfNum){
-    productOfAll *= num;
-  }
-  return productOfAll;
+  return arrayOfNum.reduce((productOfAll, num) => {
+    return productOfAll * num;
+  });
 };
 
 const power = function(base, exponent) {
@@ -37,15 +31,10 @@ const power = function(base, exponent) {
 };
 
 const factorial = function(num) {
-  let finalValue = num;
+  let finalValue = 1;
 
-	if(num === 0 || num ===1){
-    return 1;
-  }
-
-  for(let i = num-1; i >= 1; i--){
-    finalValue *= i;
-    num = i;
+  for(let curr = num; curr > 1; curr--){
+    finalValue *= curr;
   }
   return finalValue;
 };
